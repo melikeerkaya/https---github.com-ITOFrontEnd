@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>İsim</h3>
+    <label for="isim">İsim:</label>
+    <input type="text" id="isim" placeholder="isminiz">
+    <label for="soyadı">Soyadınız:</label>
+    <input type="text" id="soyadı" placeholder="soyadınız">
+    <br><br>
+
+    <h3>Adres</h3>
+    <label for="adres">Adres:</label>
+    <input type="text" id="adres" placeholder="adres">
+    <br><br>
+    <label for="adres2">Adres 2:</label>
+    <input type="text" id="adres2" placeholder="adres 2. satır">
+    <br><br>
+    <label for="ilçeşehir">İlçe/Şehir:</label>
+    <input type="text" id="ilçeşehir" placeholder="İlçe giriniz">
+    
+    <label for="il">İl:</label>
+    <input type="text" id="il" placeholder="İl">
+    <br><br>
+    <label for="postakodu">Posta Kodu:</label>
+    <input type="text" id="postakodu" placeholder="Posta Kodu">
+    <br><br>
+    <label for="ülke">Ülke:</label>
+    <select id="ülke">
+        <option value="" disabled selected>Ülke</option>
+        <option value="Türkiye">Türkiye</option>
+        <option value="Amerika">Amerika</option>
+        <option value="İtalya">İtalya</option>
+        <option value="İspanya">İspanya</option>
+        <option value="Çek Cumhuriyeti">Çek Cumhuriyeti</option>
+    </select>
+    <br><br>
+
+    <h3>
+        <span>E-posta</span> &emsp; &emsp; &emsp; &emsp; 
+        <span>Ev Numarası</span>
+    </h3>
+    <label for="e-posta">E-posta:</label>
+    <input type="text" id="E-posta" placeholder="kate@example.com">
+    <label for="evnumarası">Ev Numarası:</label>
+    <input type="text" id="evnumarası" placeholder="(000)000-0000">
+    <br><br>
+    <label for="cepnumarası">Cep Numarası:</label>
+    <input type="text" id="cepnumarası" placeholder="(000)000-0000">
+    <br><br>
+    
+    <h3>Tarih</h3>
+    <label for="tarih">Tarih:</label>
+    <input type="date" id="tarih">
+    <br><br>
+    
+    <button type="button" onclick="saveData()">Üyelik İçin Başvur</button>
+
+    <script>
+        // Sayfada herhangi bir veriyi kaydetmek için
+        function saveData() {
+            // Form verilerini al
+            let isim = document.getElementById("isim").value;
+            let soyadı = document.getElementById("soyadı").value;
+            let adres = document.getElementById("adres").value;
+            let adres2 = document.getElementById("adres2").value;
+            let ilçeşehir = document.getElementById("ilçeşehir").value;
+            let il = document.getElementById("il").value;
+            let postakodu = document.getElementById("postakodu").value;
+            let ülke = document.getElementById("ülke").value;
+            let eposta = document.getElementById("E-posta").value;
+            let evnumarası = document.getElementById("evnumarası").value;
+            let cepnumarası = document.getElementById("cepnumarası").value;
+            let tarih = document.getElementById("tarih").value;
+
+            // Verileri localStorage'a kaydet
+            localStorage.setItem("isim", isim);
+            localStorage.setItem("soyadı", soyadı);
+            localStorage.setItem("adres", adres);
+            localStorage.setItem("adres2", adres2);
+            localStorage.setItem("ilçeşehir", ilçeşehir);
+            localStorage.setItem("il", il);
+            localStorage.setItem("postakodu", postakodu);
+            localStorage.setItem("ülke", ülke);
+            localStorage.setItem("eposta", eposta);
+            localStorage.setItem("evnumarası", evnumarası);
+            localStorage.setItem("cepnumarası", cepnumarası);
+            localStorage.setItem("tarih", tarih);
+        }
+
+        // Sayfa yüklendiğinde localStorage'tan verileri okuma fonksiyonu
+        window.onload = function() {
+            // localStorage'da veriler varsa, formu bu verilerle doldur
+            if(localStorage.getItem("isim")) {
+                document.getElementById("isim").value = localStorage.getItem("isim");
+                document.getElementById("soyadı").value = localStorage.getItem("soyadı");
+                document.getElementById("adres").value = localStorage.getItem("adres");
+                document.getElementById("adres2").value = localStorage.getItem("adres2");
+                document.getElementById("ilçeşehir").value = localStorage.getItem("ilçeşehir");
+                document.getElementById("il").value = localStorage.getItem("il");
+                document.getElementById("postakodu").value = localStorage.getItem("postakodu");
+                document.getElementById("ülke").value = localStorage.getItem("ülke");
+                document.getElementById("E-posta").value = localStorage.getItem("eposta");
+                document.getElementById("evnumarası").value = localStorage.getItem("evnumarası");
+                document.getElementById("cepnumarası").value = localStorage.getItem("cepnumarası");
+                document.getElementById("tarih").value = localStorage.getItem("tarih");
+            }
+        }
+    </script>
+</body>
+</html>
